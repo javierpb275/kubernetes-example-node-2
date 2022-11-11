@@ -14,4 +14,10 @@ spec:
     spec:
       containers:
         - name: story
-          image: jpb275/kub-second-app
+          image: jpb275/kub-second-app:1
+          volumeMounts:
+            - mountPath: /app/story
+              name: story-volume
+      volumes:
+        - name: story-volume
+          emptyDir: {}
