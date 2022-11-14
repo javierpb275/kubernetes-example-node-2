@@ -17,7 +17,10 @@ spec:
           image: jpb275/kub-second-app:2
           env:
             - name: STORY_FOLDER
-              value: "story"
+              valueFrom:
+                configMapKeyRef:
+                  name: data-store-env
+                  key: folder
           volumeMounts:
             - mountPath: /app/story
               name: story-volume
